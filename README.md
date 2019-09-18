@@ -25,3 +25,7 @@ Navigate to [localhost:5000](http://localhost:5000). You should see your app run
 
 ## Overview
 Simple card game with the goal of getting to 21.
+
+Created using the [Svelte](https://svelte.dev) framework, mainly using it for easy DOM manipulation.
+
+I wanted to try something different and learn at the same time.
