@@ -1,6 +1,4 @@
 <script>
-	export let name;
-
 	let faceCards = [
 		'king',
 		'queen',
@@ -108,25 +106,48 @@
 </script>
 
 <style>
-	h1 {
-		color: purple;
+	button{
+		background: #6545a4;
+		color: #ffffff;
+		border: none;
+		border-radius: 5px;
+		padding: 10px 15px;
+		cursor: pointer;
+	}
+	#shuffle-deck{
+		background: #e7daff;
+		color: #6545a4;
+	}
+	.buttons{
+		display: flex;
+    	justify-content: center;
+	}
+	.buttons button:nth-child(1){
+		margin-right: 1em;
+	}
+	#value{
+		text-align: center;
+	}
+	.cards{
+		display: flex;
+    	justify-content: space-evenly;
 	}
 </style>
 
-<h1>Hello {name}!</h1>
-<input bind:value={player.playerName} palceholder="enter your name" type="text">
-<p>{player.playerName}</p>
-<button on:click={player.getName}></button>
-<button on:click={deck.shuffle}>Shuffle Deck</button>
-<button hidden={hand.drewHand} on:click={hand.drawHand}>Draw Hand</button>
-<button hidden={!hand.drewHand} on:click={hand.drawCard}>Draw Card</button>
+<div class="buttons">
+	<button id="shuffle-deck" on:click={deck.shuffle}>Shuffle Deck</button>
+	<button hidden={hand.drewHand} on:click={hand.drawHand}>Draw Hand</button>
+	<button hidden={!hand.drewHand} on:click={hand.drawCard}>Draw Card</button>
+</div>
 <br>
-<p hidden={game.gameOver}>{hand.currentHandValue}</p>
+<p id="value" hidden={game.gameOver}>{hand.currentHandValue}</p>
 <br>
 <p hidden={!game.gameOver}>Game Over</p>
 <br>
 <button hidden={!game.gameOver} on:click={game.reset}>Reset</button>
-{#each hand.cards as { image }, i}
-	<img hidden={game.gameOver} src="{image}" alt="">
-{/each}
+<div class="cards">
+	{#each hand.cards as { image }, i}
+		<img hidden={game.gameOver} src="{image}" alt="">
+	{/each}
+</div>
 
