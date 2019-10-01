@@ -67,19 +67,6 @@
 		discard: () => {hand.cards = []}
 	};
 
-	const suit = {
-		id: '',
-		name: '',
-		colour: '',
-		icon: ''
-	};
-
-	const card = {
-		suit: suit,
-		value: '',
-		getSuit: () => card.suit
-	};
-
 	const player = {
 		playerName: '',
 		playerId: '',
